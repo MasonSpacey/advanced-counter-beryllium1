@@ -8,6 +8,6 @@
   time to test it:
 */
 
-ImperativeProceduralApproach()
-// ObjectOrientedApproach()
+// ImperativeProceduralApproach()
+ObjectOrientedApproach()
 // FunctionalApproach()
