@@ -1,22 +1,15 @@
-/* The Advanced Counter object should have the following property and methods:
+// Please see the other JavaScript files in this project for examples from each of the three major paradigms (approaches to code organization).
 
-  count: a number which represents the current count, initial value 0
+// Uncomment only ONE of the following three approaches at one time to test it.
 
-  render(): when this function runs, the DOM will be updated to display the current state of the counter
+// ImperativeApproach()
+// ObjectOrientedApproach()
+FunctionalApproach()
 
-  next(): increment the counter by 1, then render()
 
-  prev(): decrement the counter by 1, then render()
-
-  reset(): reset the counter to 0, then render()
-
-  skipForward(): increment the counter by 10, then render()
-
-  skipBackward(): increment the counter by 10, then   render()
-
-  startTimer(): start a timer and render() every second
-
-  stopTimer(): stop the timer, then render()
-*/
-
-const main = document.querySelector("main")
+// Brief setTimeout demo ##################################
+const timerId = setTimeout(() => console.log("This will run fourth, unless it is cancelled first"), 5000)
+clearTimeout(timerId)
+setTimeout(() => console.log("This will run third"), 1000)
+setTimeout(() => console.log("This will run second"), 0)
+console.log("This console log will run first")
