@@ -1,7 +1,9 @@
 const ObjectOrientedApproach = function () {
   /*
     The Object-Oriented Programming Approach:
-      Organize the code by grouping your data and related functions all into an object.
+      Organize the code by grouping your data and related functions all into an object. This approach works well for the larger, more important concepts in your program.
+
+      In JavaScript, there are multiples ways to accomplish the goals of the Object-Oriented paradigm. The example below only uses one new language feature: the `this` keyword. In the next couple of weeks, we will explore other language features which will make Object-Oriented Programming simpler and more useful.
   */
 
   /*
@@ -20,8 +22,8 @@ const ObjectOrientedApproach = function () {
     intervalId: null,
 
     render: function () {
-      this.countView.replaceChildren(this.count)
-      console.log({ count })
+      this.countView.replaceChildren(this.count.toLocaleString())
+      console.log({ count: this.count })
     },
 
     next: function () {
@@ -51,7 +53,7 @@ const ObjectOrientedApproach = function () {
 
     startTimer: function () {
       if (this.intervalId !== null) {
-        clearInterval(this.intervalId) // We don't want it to be possible for TWO timers to be running at the same time for the same counter. So we will cancel this counter's previous timer before starting a new one.
+        this.stopTimer() // We don't want it to be possible for TWO timers to be running at the same time for the same counter. So we will cancel this counter's previous timer before starting a new one.
       }
 
       this.next() // Increment and render the count once NOW, so that the user doesn't have to wait one full second before seeing proof that the button has done something.

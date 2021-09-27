@@ -1,8 +1,12 @@
-const ImperativeApproach = function () {
+const ImperativeProceduralApproach = function () {
 
   /* 
-    The Imperative/Procedural Paradigm Approach:
-      Very few rules for organizing code. Simply use function statements, IF statements, FOR statements, etc.
+    The Imperative-Procedural Paradigm Approach:
+      Very few rules for organizing code. Simply use function statements, IF statements, FOR statements, etc., as normal. This approach tends toward unorganized code, except in small quantities.
+      
+      This is basically how you have been writing code. Most developers think of it as the style of code we will normally write when we aren't DELIBERATELY following (or FORCE to follow) a stricter approach to code organization, like the Object-Oriented or Functional approaches.
+      
+      This approach is best used in small doses WITHIN functions/methods.
   */
 
   const countView = document.querySelector("#count")
@@ -10,7 +14,7 @@ const ImperativeApproach = function () {
   let intervalId = null
 
   function render () {
-    countView.replaceChildren(count)
+    countView.replaceChildren(count.toLocaleString())
     console.log({ count })
   }
 
@@ -41,7 +45,7 @@ const ImperativeApproach = function () {
 
   function startTimer () {
     if (intervalId !== null) {
-      clearInterval(intervalId) // We don't want it to be possible for two timers to be running at the same time for the same counter. So we will cancel a previous timer before starting a new one.
+      stopTimer() // We don't want it to be possible for two timers to be running at the same time for the same counter. So we will cancel a previous timer before starting a new one.
     }
     
     next() // Increment the count now, so that the user doesn't have to wait one full second before seeing proof that the button has done something.
