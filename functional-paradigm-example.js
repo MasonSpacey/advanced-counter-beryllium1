@@ -62,8 +62,8 @@ const FunctionalApproach = function () {
     // Now we will return an object containing nothing but our functions.
     // We do NOT expose our state (changeable data) in a way which would 
     // permit some code somewhere else to change it in some way we have
-    // not anticipated and designed for. We only expose the features we
-    // want to permit.
+    // not anticipated and designed for. We only expose the features
+    // which we have decided to permit in our Counter.
     return {
       next,
       prev,
