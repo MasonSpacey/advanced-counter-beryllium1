@@ -1,7 +1,12 @@
+// Need       > Esthetics (what do you like?) > Engineering
+// Basic food > Food Preferences              > Cooking
+
 const ImperativeProceduralApproach = function () {
 
   /* 
     The Imperative-Procedural Paradigm Approach:
+      - "Imperative" means "write commands"
+      - "Procedural" means "write functions"
       Very few rules for organizing code. Simply use function statements, IF statements, FOR statements, etc., as normal. This approach tends toward unorganized code, except in small quantities.
       
       This is basically how you have been writing code. Most developers think of it as the style of code we will normally write when we aren't DELIBERATELY following (or FORCE to follow) a stricter approach to code organization, like the Object-Oriented or Functional approaches.

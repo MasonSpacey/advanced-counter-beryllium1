@@ -1,7 +1,17 @@
 const ObjectOrientedApproach = function () {
   /*
     The Object-Oriented Programming Approach:
-      Organize the code by grouping your data and related functions all into an object. This approach works well for the larger, more important concepts in your program.
+      - "Object-oriented" means "group your data and related functions"
+      - "Message-oriented" means "when you send the same message to two objects, they respond differently" (Polymorphism)
+        - Polymorphism: When I tell the neighborhood kids it is time to go home, I have provided the same instruction to each of them, but they each interpret what that means for them: each will go to their OWN home, taking whatever distinct path they need to accomplish that task. This is the heart of Object-Oriented Programming.
+
+      Two Most Central Concepts:
+
+      Polymorphism: Organize the code by providing a _consistent_ approach among related objects for accomplishing similar tasks in a way which permits code reuse when possible.
+
+      Objects for Organizing Tasks: Organize the code by grouping your data and related functions all into an object.
+      
+      This approach works well for the larger, more important concepts in your program.
 
       In JavaScript, there are multiples ways to accomplish the goals of the Object-Oriented paradigm. The example below only uses one new language feature: the `this` keyword. In the next couple of weeks, we will explore other language features which will make Object-Oriented Programming simpler and more useful.
   */
@@ -51,7 +61,7 @@ const ObjectOrientedApproach = function () {
       this.render()
     },
 
-    startTimer: function () {
+    startTimer: function () { // THIS is considered a parameter
       if (this.intervalId !== null) {
         this.stopTimer() // We don't want it to be possible for TWO timers to be running at the same time for the same counter. So we will cancel this counter's previous timer before starting a new one.
       }
@@ -59,17 +69,17 @@ const ObjectOrientedApproach = function () {
       this.next() // Increment and render the count once NOW, so that the user doesn't have to wait one full second before seeing proof that the button has done something.
 
       // THEN start the 1 second interval:
-      this.intervalId = window.setInterval(() => {
-        this.count += 1
-        this.render()
-      }, 1000)
+      this.intervalId = window.setInterval(this.next.bind(this), 1000)
     },
+
+    // Normally, a function's THIS keyword will change meaning depending on where it is called/run/executed.
+    // The bind() method allows me to turn OFF this feature, setting the THIS keyword to whatever object I want.
 
     stopTimer: function () {
       clearInterval(this.intervalId)
     },
 
-  }
+  };
 
   // Examples of reusing the above functions in a new counter object:
   const advertisingCounter = {
@@ -84,6 +94,8 @@ const ObjectOrientedApproach = function () {
     startTimer: counter.startTimer,
     stopTimer: counter.stopTimer,
   }
+
+  advertisingCounter.next()
 
   const newsletterCounter = {
     count: 500,
@@ -118,3 +130,12 @@ const ObjectOrientedApproach = function () {
   })
 
 }
+
+
+
+
+
+
+
+
+
